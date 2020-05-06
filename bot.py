@@ -60,16 +60,6 @@ def on_receiving_message(update, context):
                                      text="Try Another Status!")
 
 
-def request_location(context, update):
-    location_keyboard = telegram.KeyboardButton(text="Send location", request_location=True)
-    contact_keyboard = telegram.KeyboardButton(text="Send contact", request_contact=True)
-    custom_keyboard = [[location_keyboard, contact_keyboard]]
-    reply_markup = telegram.ReplyKeyboardMarkup(custom_keyboard)
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="Would you mind sharing your location and contact with me?",
-                             reply_markup=reply_markup)
-
-
 if __name__ == '__main__':
 
     updater = Updater(token=TOKEN, use_context=True)
